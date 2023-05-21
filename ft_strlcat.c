@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oprosvir <oprosvir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 00:43:38 by oprosvir          #+#    #+#             */
-/*   Updated: 2023/05/13 00:43:38 by oprosvir         ###   ########.fr       */
+/*   Created: 2023/05/22 00:52:14 by oprosvir          #+#    #+#             */
+/*   Updated: 2023/05/22 00:52:14 by oprosvir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	dst_len;
 	size_t	src_len;
 
+	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
-	if (src_len + 1 < size)
+	if (dst_len >= size)
 	{
-		ft_memcpy(dst, src, src_len + 1);
+		return (src_len + size);
 	}
-	else if (size != 0)
+	if (src_len < size - dst_len)
 	{
-		ft_memcpy(dst, src, size - 1);
+		ft_memcpy(dst + dst_len, src, src_len + 1);
+	}
+	else
+	{
+		ft_memcpy(dst + dst_len, src, size - dst_len - 1);
 		dst[size - 1] = '\0';
 	}
-	return (src_len);
+	return (dst_len + src_len);
 }
