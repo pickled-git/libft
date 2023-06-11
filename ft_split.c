@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 static int	get_word_count(char const *s, char c)
 {
 	int		count;
