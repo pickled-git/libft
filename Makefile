@@ -24,7 +24,7 @@ $(NAME):	$(OBJS) libft.h
 %.o: %.c libft.h
 			$(CC) -c $< -o $@
 
-bonus:		$(OBJS_BONUS) libft.h
+bonus:		$(OBJS_BONUS)
 			ar rcs $(NAME) ${OBJS_BONUS}
 
 clean:
