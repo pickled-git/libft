@@ -18,13 +18,13 @@ RM		= rm -f
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) libft.h
 			ar rcs $@ $^
 
-%.o: %.c
+%.o: %.c libft.h
 			$(CC) -c $< -o $@
 
-bonus:		$(OBJS_BONUS)
+bonus:		$(OBJS_BONUS) libft.h
 			ar rcs $(NAME) ${OBJS_BONUS}
 
 clean:
