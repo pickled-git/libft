@@ -51,12 +51,30 @@ static char	*make_word(char const *s, size_t len)
 	return (word);
 }
 
+static int	next_word(char const **s, char c, char **words, int i)
+{
+	int		j;
+
+	if (**s != c)
+	{
+		j = 0;
+		while ((*s)[j] != c && (*s)[j] != '\0')
+			j++;
+		words[i] = make_word(*s, j);
+		if (!words[i])
+			return (0);
+		*s += j;
+		return (1);
+	}
+	(*s)++;
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
 	int		word_count;
 	int		i;
-	int		j;
 
 	word_count = get_word_count(s, c);
 	words = malloc(sizeof(char *) * (word_count + 1));
@@ -65,19 +83,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s != '\0')
 	{
-		if (*s != c)
-		{
-			j = 0;
-			while (s[j] != c && s[j] != '\0')
-				j++;
-			words[i] = make_word(s, j);
-			if (!words[i])
-				return (NULL);
-			s += j;
+		if (next_word(&s, c, words, i))
 			i++;
-		}
-		else
-			s++;
 	}
 	words[i] = NULL;
 	return (words);

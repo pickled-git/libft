@@ -6,7 +6,7 @@
 /*   By: oprosvir <oprosvir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 01:38:29 by oprosvir          #+#    #+#             */
-/*   Updated: 2023/05/22 01:38:29 by oprosvir         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:46:44 by oprosvir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strchr(const char *s, int c)
 			return (NULL);
 		}
 	}
-	return (char *)s;
+	return ((char *)s);
 }

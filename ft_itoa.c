@@ -6,15 +6,15 @@
 /*   By: oprosvir <oprosvir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 00:49:19 by oprosvir          #+#    #+#             */
-/*   Updated: 2023/06/11 00:49:19 by oprosvir         ###   ########.fr       */
+/*   Updated: 2023/06/12 19:09:26 by oprosvir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	get_len(int n)
+static int	get_len(long n)
 {
-	size_t	len;
+	int	len;
 
 	if (n == 0)
 		return (1);
@@ -35,7 +35,7 @@ static size_t	get_len(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	len;
+	long	len;
 	long	num;
 
 	num = n;

@@ -6,11 +6,11 @@
 /*   By: oprosvir <oprosvir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 00:23:04 by oprosvir          #+#    #+#             */
-/*   Updated: 2023/05/13 00:23:04 by oprosvir         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:38:37 by oprosvir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return (c >= 32 && c <= 126);
+	return (c >= 32 && c <= 126);
 }
