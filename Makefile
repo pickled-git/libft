@@ -18,11 +18,15 @@ RM		= rm -f
 
 all:		$(NAME)
 
+
 $(NAME):	$(OBJS) libft.h
 			ar rcs $@ $^
 
 %.o: %.c libft.h
 			$(CC) -c $< -o $@
+			
+#so: $(OBJS) $(OBJS_BONUS)
+#	gcc -shared -o libft.so $^
 
 bonus:		$(OBJS_BONUS)
 			ar rcs $(NAME) ${OBJS_BONUS}
