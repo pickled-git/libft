@@ -14,18 +14,21 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
-	size_t	total_size;
+	char	*ptr;
+	size_t	i;
 
-	total_size = count * size;
-	ptr = malloc(total_size);
-	if (!ptr)
-		return (NULL);
-	if (total_size / count != size)
+	i = 0;
+	if (size != 0 && count > SIZE_MAX / size)
 	{
-		free(ptr);
 		return (NULL);
 	}
-	ft_bzero(ptr, total_size);
+	ptr = (void *)malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 	return (ptr);
 }
